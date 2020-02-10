@@ -1,0 +1,21 @@
+name: Tester
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Run a one-line script
+      run: echo testing > out.txt
+    - name: Upload asset to release
+      uses: csexton/release-asset-action@tidy
+      with:
+        file: out.txt
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: false
