@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2.0.0
     - name: Run a one-line script
       run: echo testing > out.txt
     - name: Upload asset to release
-      uses: csexton/release-asset-action@tidy
+      uses: csexton/release-asset-action@master
       with:
         file: out.txt
         github-token: ${{ secrets.GITHUB_TOKEN }}
